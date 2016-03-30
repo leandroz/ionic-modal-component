@@ -1,5 +1,7 @@
 # ionic-modal-component
 
+[![Build Status](https://travis-ci.org/leandroz/ionic-modal-component.svg?branch=master)](https://travis-ci.org/leandroz/ionic-modal-component)
+
 A better way to handle modals in Ionic
 
 ionic-modal-component is a simple directive that lets you use Ionic modal as a component instead of creating it programmatically.
