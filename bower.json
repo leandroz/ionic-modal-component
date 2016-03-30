@@ -1,0 +1,27 @@
+{
+  "name": "ionic-modal-component",
+  "version": "0.0.1",
+  "main": "./dist/ionic-modal-component.min.js",
+  "dependencies": {
+    "ionic": ">=1.0.0"
+  },
+  "homepage": "https://github.com/leandroz/ionic-modal-component",
+  "authors": [
+    "Leandri Zubrezki <leandro.zubrezki@gmail.com>"
+  ],
+  "description": "Ionic modal as a component",
+  "moduleType": [],
+  "keywords": [
+    "Ionic",
+    "Modal",
+    "Directive"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
