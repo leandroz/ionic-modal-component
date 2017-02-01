@@ -1,6 +1,6 @@
 {
   "name": "ionic-modal-component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./dist/ionic-modal-component.min.js",
   "dependencies": {
     "ionic": ">=1.0.0"

@@ -1,6 +1,6 @@
 (function() {
 
-  @Inject('$scope', '$ionicModal', '$transclude', '$rootScope')
+  @Inject('$scope', '$ionicModal', '$transclude', '$rootScope', '$timeout')
   class Modal {
     constructor() {
       let { animation, focusFirstInput, backdropClickToClose, hardwareBackButtonClose } = this;
@@ -44,8 +44,8 @@
       });
     }
     emitOnSetupEvent() {
-      this.onSetup({
-        $removeModal: this.removeModal.bind(this)
+      this.$timeout(() => {
+        this.onSetup({ $removeModal: this.removeModal.bind(this) });
       });
     }
     createModalAndAppendClone({

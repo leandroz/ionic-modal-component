@@ -4,22 +4,23 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/*! ionic-modal-component v0.0.1 | (c) 2016 @leanzubrezki | https://github.com/leandroz/ionic-modal-component */
+/*! ionic-modal-component v0.0.2 | (c) 2017 @leanzubrezki | https://github.com/leandroz/ionic-modal-component */
 (function () {
   var Modal = function () {
-    function Modal($scope, $ionicModal, $transclude, $rootScope) {
+    function Modal($scope, $ionicModal, $transclude, $rootScope, $timeout) {
       var _this = this;
 
       _classCallCheck(this, Modal);
 
+      this.$timeout = $timeout;
       this.$rootScope = $rootScope;
       this.$transclude = $transclude;
       this.$ionicModal = $ionicModal;
       this.$scope = $scope;
-      var animation = this.animation;
-      var focusFirstInput = this.focusFirstInput;
-      var backdropClickToClose = this.backdropClickToClose;
-      var hardwareBackButtonClose = this.hardwareBackButtonClose;
+      var animation = this.animation,
+          focusFirstInput = this.focusFirstInput,
+          backdropClickToClose = this.backdropClickToClose,
+          hardwareBackButtonClose = this.hardwareBackButtonClose;
 
       focusFirstInput = focusFirstInput == 'true';
       backdropClickToClose = backdropClickToClose == 'true';
@@ -76,23 +77,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       key: 'emitOnSetupEvent',
       value: function emitOnSetupEvent() {
-        this.onSetup({
-          $removeModal: this.removeModal.bind(this)
+        var _this4 = this;
+
+        this.$timeout(function () {
+          _this4.onSetup({ $removeModal: _this4.removeModal.bind(_this4) });
         });
       }
     }, {
       key: 'createModalAndAppendClone',
       value: function createModalAndAppendClone(_ref, clone) {
-        var _ref$scope = _ref.scope;
-        var scope = _ref$scope === undefined ? this.$rootScope.$new(true) : _ref$scope;
-        var _ref$animation = _ref.animation;
-        var animation = _ref$animation === undefined ? 'slide-in-up' : _ref$animation;
-        var _ref$focusFirstInput = _ref.focusFirstInput;
-        var focusFirstInput = _ref$focusFirstInput === undefined ? false : _ref$focusFirstInput;
-        var _ref$backdropClickToC = _ref.backdropClickToClose;
-        var backdropClickToClose = _ref$backdropClickToC === undefined ? true : _ref$backdropClickToC;
-        var _ref$hardwareBackButt = _ref.hardwareBackButtonClose;
-        var hardwareBackButtonClose = _ref$hardwareBackButt === undefined ? true : _ref$hardwareBackButt;
+        var _ref$scope = _ref.scope,
+            scope = _ref$scope === undefined ? this.$rootScope.$new(true) : _ref$scope,
+            _ref$animation = _ref.animation,
+            animation = _ref$animation === undefined ? 'slide-in-up' : _ref$animation,
+            _ref$focusFirstInput = _ref.focusFirstInput,
+            focusFirstInput = _ref$focusFirstInput === undefined ? false : _ref$focusFirstInput,
+            _ref$backdropClickToC = _ref.backdropClickToClose,
+            backdropClickToClose = _ref$backdropClickToC === undefined ? true : _ref$backdropClickToC,
+            _ref$hardwareBackButt = _ref.hardwareBackButtonClose,
+            hardwareBackButtonClose = _ref$hardwareBackButt === undefined ? true : _ref$hardwareBackButt;
 
         var options = {
           scope: scope,
@@ -116,7 +119,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     return Modal;
   }();
 
-  Modal.$inject = ['$scope', '$ionicModal', '$transclude', '$rootScope'];
+  Modal.$inject = ['$scope', '$ionicModal', '$transclude', '$rootScope', '$timeout'];
 
 
   function ionicModalComponent() {
